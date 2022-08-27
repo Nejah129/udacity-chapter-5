@@ -3,13 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "engines": {
+    "node": "14.14.3"
+  },
   "scripts": {
     "start": "node server.js",
     "tsc": "tsc",
     "dev": "ts-node-dev ./src/server.ts",
     "prod": "tsc && node ./www/server.js",
     "clean": "rimraf www/ || true",
-    "build": "npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && tar -cf Archive.zip . && cd ..",
+    "build": "npm run clean && tsc && cp package.json www\\package.json && mkdir www\\tmp\\ && cd www && zip -r Archive.zip . && cd ..",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -21,14 +24,14 @@
     "aws-sdk": "^2.492.0",
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
-    "dotenv": "^16.0.1",
     "email-validator": "^2.0.4",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.2.1",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^4.44.4",
-    "sequelize-typescript": "^0.6.11"
+    "sequelize-typescript": "^0.6.11",
+    "ts-dotenv": "^0.8.3"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.33",
@@ -38,6 +41,7 @@
     "@types/validator": "^10.11.3",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
+    "dotenv": "^16.0.1",
     "mocha": "^6.2.3",
     "rimraf": "^3.0.2",
     "ts-node-dev": "^1.1.1",
