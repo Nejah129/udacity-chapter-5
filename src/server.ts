@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-dotenv.config();
+// dotenv.config();
 import express from "express";
 
 // console.log(process.env. POSTGRESS_USERNAME)
